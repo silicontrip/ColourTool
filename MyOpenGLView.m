@@ -3,7 +3,7 @@
 //  GoldenTriangle
 //
 //  Created by Mark Heath on 31/08/10.
-//  Copyright 2010 Telstra. All rights reserved.
+//  Copyright 2010 
 //
 
 #import "MyOpenGLView.h"
@@ -290,6 +290,7 @@ void createPoints ()
 	for (y=0;y<MAXPOINTS;y++)
 		for(u=0;u<MAXPOINTS;u++)
 			for (v=0;v<MAXPOINTS;v++)
+				// want to make selectable percentile
 				if (yuv[y][u][v] > 5) {
 					//NSLog (@"point\n");
 					
@@ -470,8 +471,10 @@ void simPoints()
 	
 	NSImage *loadImage = [[NSImage alloc] initWithContentsOfURL:fn];
 	NSBitmapImageRep *imageRep = [[loadImage representations] objectAtIndex:0];
-	
-	unsigned char *pixelData = [imageRep bitmapData];
+	NSUInteger pixel[4];
+    
+    
+//	unsigned char *pixelData = [imageRep bitmapData];
 
 	w = [imageRep pixelsWide];
 	h = [imageRep pixelsHigh];
@@ -479,13 +482,10 @@ void simPoints()
 	s = [imageRep samplesPerPixel];
 	
 	for (n=0; n<h; n++) 
-	for (m=n*p; m<w*s+n*p; m+=s)
+        for (m=0; m<w; m++)
 	{
-	
-		y=*(pixelData+m);
-		u=*(pixelData+m+1);
-		v=*(pixelData+m+2);
-		yuv[y][u][v]++;
+        [imageRep getPixel:pixel atX:m y:n];
+		yuv[pixel[0]][pixel[1]][pixel[2]]++;
 
 	}
 	
