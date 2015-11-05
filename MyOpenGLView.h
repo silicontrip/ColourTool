@@ -58,7 +58,7 @@ void simPoints() ;
 
 - (BOOL)acceptsFirstResponder;
 
-- (void) openFile:(NSString *)fn;
+- (void) openFile:(NSURL *)fn;
 - (BOOL)validateMenuItem:(NSMenuItem *)anItem;
 
 - (void)openDocument:sender;
