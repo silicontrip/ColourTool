@@ -468,7 +468,7 @@ void simPoints()
 - (void) openFile:(NSURL *)fn
 {
 
-	int w,h,p,m,n,s;
+	int y,u,v,w,h,p,m,n,s;
 	
 	NSImage *loadImage = [[NSImage alloc] initWithContentsOfURL:fn];
 	NSBitmapImageRep *imageRep = [[loadImage representations] objectAtIndex:0];
@@ -482,13 +482,18 @@ void simPoints()
 	p = [imageRep bytesPerRow];
 	s = [imageRep samplesPerPixel];
 	
+    for (y=0;y<MAXPOINTS;y++)
+        for(u=0;u<MAXPOINTS;u++)
+            for (v=0;v<MAXPOINTS;v++)
+                yuv[y][u][v]=0;
+
+    
 	for (n=0; n<h; n++) 
         for (m=0; m<w; m++)
-	{
-        [imageRep getPixel:pixel atX:m y:n];
-		yuv[pixel[0]][pixel[1]][pixel[2]]++;
-
-	}
+        {
+            [imageRep getPixel:pixel atX:m y:n];
+            yuv[pixel[0]][pixel[1]][pixel[2]]++;
+        }
 	
 	//NSLog(@"finished reading");
 	[loadImage dealloc];
