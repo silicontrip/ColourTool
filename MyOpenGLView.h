@@ -61,7 +61,9 @@ void simPoints() ;
 - (void) openFile:(NSURL *)fn;
 - (BOOL)validateMenuItem:(NSMenuItem *)anItem;
 
-- (void)openDocument:sender;
+// - (void)openDocument:sender;
+- (IBAction)openDocument:(id)sender;
+
 - (void) awakeFromNib;
 
 

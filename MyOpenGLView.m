@@ -517,7 +517,7 @@ void simPoints()
     return [super validateMenuItem:anItem];
 }
 
-- (void)openDocument:sender
+- (IBAction)openDocument:(id)sender
 {
 	// NSLog ( @"we will we will open");
 	
