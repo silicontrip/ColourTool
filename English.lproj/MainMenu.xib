@@ -1118,9 +1118,9 @@
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
-						<object class="NSOpenGLView" id="121027114">
+						<object class="NSOpenGLView" id="817724234">
 							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">319</int>
 							<string key="NSFrame">{{0, -7}, {480, 367}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
@@ -1135,7 +1135,7 @@
 					<string key="NSFrameSize">{480, 360}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="121027114"/>
+					<reference key="NSNextKeyView" ref="817724234"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1866, 907}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -1670,7 +1670,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">openDocument:</string>
-						<reference key="source" ref="121027114"/>
+						<reference key="source" ref="817724234"/>
 						<reference key="destination" ref="722745758"/>
 					</object>
 					<int key="connectionID">462</int>
@@ -2232,7 +2232,7 @@
 						<int key="objectID">372</int>
 						<reference key="object" ref="439893737"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="121027114"/>
+							<reference ref="817724234"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2536,7 +2536,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">457</int>
-						<reference key="object" ref="121027114"/>
+						<reference key="object" ref="817724234"/>
 						<reference key="parent" ref="439893737"/>
 					</object>
 				</array>
