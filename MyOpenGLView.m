@@ -146,9 +146,9 @@ void rgb2vert (int inv, int r, int g, int b, int *x, int *y, int *z)
 void rgb2yuv (int r, int g, int b, int *y, int *u, int *v) 
 {
 	
-	*y =((16843 * r) + (33030 * g) + (6423 * b)>>16) + 16;
-	*u =(-(9699 * r) - (19071 * g) + (28770 * b)>>16) + 128;
-	*v =((28770 * r) - (24117 * g) - (4653 * b)>>16) + 128;
+	*y =(((16843 * r) + (33030 * g) + (6423 * b))>>16) + 16;
+	*u =((-(9699 * r) - (19071 * g) + (28770 * b))>>16) + 128;
+	*v =(((28770 * r) - (24117 * g) - (4653 * b))>>16) + 128;
 	
 }	
 
@@ -156,9 +156,10 @@ void yuv2rgb (int y, int u, int v, int *r, int *g, int *b)
 {
 	
 	// want to convert this to integer maths.
-	*b = 1.164*(y - 16) + 2.018*(u - 128);
-	*g = 1.164*(y - 16) - 0.813*(v - 128) - 0.391*(u - 128);
-	*r = 1.164*(y - 16) + 1.596*(v - 128);
+    // untested integer version
+	*b = (76284*(y - 16) + 132252*(u - 128)) >> 16;
+	*g = (76284*(y - 16) - 53281*(v - 128) - 25625*(u - 128)) >> 16;
+	*r = (76284*(y - 16) + 104595*(v - 128)) >> 16;
 	
 }
 
@@ -467,7 +468,7 @@ void simPoints()
 - (void) openFile:(NSURL *)fn
 {
 
-	int y,u,v,w,h,p,m,n,s;
+	int w,h,p,m,n,s;
 	
 	NSImage *loadImage = [[NSImage alloc] initWithContentsOfURL:fn];
 	NSBitmapImageRep *imageRep = [[loadImage representations] objectAtIndex:0];
